@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap");
+@import "fontawesome";
+@import "solid";
+@import "brands";
+
+/* Color Theme Swatches in Hex */
+$Social-engine-1-hex: #732C3F;
+$Social-engine-2-hex: #8C3063;
+$Social-engine-3-hex: #731F65;
+$Social-engine-4-hex: #8C1F85;
+$Social-engine-5-hex: #0D0D0D;
+
+/* Color Theme Swatches in RGBA */
+$Social-engine-1-rgba: rgba(115,44,63, 1);
+$Social-engine-2-rgba: rgba(140,48,99, 1);
+$Social-engine-3-rgba: rgba(115,31,101, 1);
+$Social-engine-4-rgba: rgba(140,31,133, 1);
+$Social-engine-5-rgba: rgba(13,13,13, 1);
+
+/* Color Theme Swatches in HSLA */
+$Social-engine-1-hsla: hsla(343, 44, 31, 1);
+$Social-engine-2-hsla: hsla(326, 48, 36, 1);
+$Social-engine-3-hsla: hsla(310, 57, 28, 1);
+$Social-engine-4-hsla: hsla(303, 63, 33, 1);
+$Social-engine-5-hsla: hsla(0, 0, 5, 1);
+
+$light-color: #f4f4f4;
+$dark-color: #181818;
+$danger-color: red;
+$success-color: green;
+$warning-color: orange;
+
+$max-width: 1100px;
+
+// Reset browser params
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "TitilliumWeb", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+// Set text color based on background
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #333;
+  } @else {
+    @return white;
+  }
+}
+
+// Set background & text colors
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+// Margin & Padding
+$spaceamounts: (1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+  // all around margin
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+
+  //  Vertical margin
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+
+  // all around padding
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+
+  //  Vertical padding
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+}
+
+// Transition effect
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+
+// Media query mixin
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}

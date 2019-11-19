@@ -1,0 +1,108 @@
+// Members page
+.profile {
+  grid-template-columns: 2fr 4fr 2fr;
+  grid-gap: 2rem;
+  align-items: center;
+  line-height: 1.8;
+}
+
+// Profile page
+.profile-grid {
+  display: grid;
+  grid-template-areas: 
+  "top top"
+  "about about"
+  "exp edu"
+  "github github";
+  grid-gap: 1rem;
+  .profile-top {
+    grid-area: top;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    // img {
+    //   width: 250px;
+    // }
+  }
+  .profile-about {
+    grid-area: about;
+    text-align: center;
+    .skills {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  .profile-exp {
+    grid-area: exp;
+  }
+  .profile-edu {
+    grid-area: edu;
+  }
+  .profile-exp,
+  .profile-edu {   
+    & > div {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: #333 1px dotted; 
+      &:last-child {
+        border: none;
+      }
+    }  
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+  
+  .profile-github {
+    grid-area: github;
+    .repo {
+      display: flex;
+      & > div:first-child {
+        flex: 7;
+        flex-basis: 70%;
+      }     
+      & > div:last-child {
+        flex: 3;
+        flex-basis: 20%;
+      }
+    }
+  }
+}
+
+// Widescreen
+@include mediaXl {
+
+}
+
+// Desktops
+@include mediaLg {
+
+}
+
+// Tablets
+@include mediaMd {
+  .profile-grid {
+    grid-template-areas: 
+    "top top"
+    "about about"
+    "exp exp"
+    "edu edu"
+    "github github"
+  }
+}
+
+// Phones
+@include mediaSm {
+  .profile-grid {
+    grid-template-areas: 
+    "top top"
+    "about about"
+    "exp exp"
+    "edu edu"
+    "github github"
+  }
+}
